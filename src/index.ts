@@ -3,6 +3,7 @@
 import * as yargs from 'yargs';
 import * as log from 'log-util';
 import * as cosmiconfig from 'cosmiconfig';
+import * as updateNotifier from 'update-notifier';
 
 import toc, { Options } from './commands/toc';
 
@@ -42,6 +43,7 @@ async function configureYargs() {
 (async function() {
   try {
     await configureYargs();
+    updateNotifier({ pkg: require('../package.json') }).notify();
     const { cwd, logLevel, linkPrefix, readme } = yargs.argv;
     const options: Options = {
       cwd: cwd as string,

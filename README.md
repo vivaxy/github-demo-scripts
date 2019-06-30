@@ -2,6 +2,11 @@
 
 Created by create-n.
 
+# Usage
+
+- Run in standalone `npx @vivaxy/github-demo-scripts`
+- Install and run `yarn add @vivaxy/github-demo-scripts && gds`
+
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
