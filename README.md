@@ -2,17 +2,17 @@
 
 Created by create-n.
 
-# Usage
-
-- Run in standalone `npx @vivaxy/github-demo-scripts`
-- Install and run `yarn add @vivaxy/github-demo-scripts && gds`
-
 [![Build Status][travis-image]][travis-url]
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
 [![Standard Version][standard-version-image]][standard-version-url]
 [![Codecov][codecov-image]][codecov-url]
+
+# Usage
+
+- Run in standalone `npx @vivaxy/github-demo-scripts`
+- Install and run `yarn add @vivaxy/github-demo-scripts && npx gds`
 
 [travis-image]: https://img.shields.io/travis/vivaxy/github-demo-scripts.svg?style=flat-square
 [travis-url]: https://travis-ci.org/vivaxy/github-demo-scripts
