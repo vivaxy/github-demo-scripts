@@ -209,7 +209,7 @@ async function recursivelyReadMeta({
     relativePath,
     name: 'description',
     $parent: $head,
-    defaultContent: pkg.description || '',
+    defaultContent: title.content || pkg.description || '',
     getElement($parent) {
       return $parent.find('meta[name="description"]');
     },
