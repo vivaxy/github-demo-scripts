@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.2...v0.2.3) (2019-06-30)
+
+
+### Bug Fixes
+
+* **toc:** :bug: Fix toc desc not right ([4de6e50](https://github.com/vivaxy/github-demo-scripts/commit/4de6e50))
+
+
+
 ### [0.2.2](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.1...v0.2.2) (2019-06-30)
 
 
