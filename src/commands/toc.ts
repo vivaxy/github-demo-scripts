@@ -84,7 +84,7 @@ function getMetaContent<T>({
   const newContent = mergeContent(currentContent, defaultContent);
   if (newContent === currentContent) {
     return {
-      content: defaultContent,
+      content: currentContent,
       modified: false,
     };
   }
