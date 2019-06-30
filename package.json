@@ -1,6 +1,6 @@
 {
   "name": "@vivaxy/github-demo-scripts",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Created by create-n",
   "bin": {
     "gds": "lib/index.js"
