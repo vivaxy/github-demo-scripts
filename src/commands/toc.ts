@@ -266,14 +266,17 @@ async function recursivelyReadMeta({
 }
 
 function recursivelyCreateTOC(meta: Meta, depth: number) {
-  const toc = `${'  '.repeat(depth)}* [${meta.title}](${meta.link}) ${
-    meta.desc
-  }`;
   const childrenTOC: string = meta.children
     .map(function(child) {
       return recursivelyCreateTOC(child, depth + 1);
     })
     .join('');
+  if (depth < 0) {
+    return childrenTOC;
+  }
+  const toc = `${'  '.repeat(depth)}* [${meta.title}](${meta.link}) ${
+    meta.desc
+  }`;
   return toc + '\n' + childrenTOC;
 }
 
@@ -296,7 +299,7 @@ async function generateReadme(
   readme: string,
 ): Promise<void> {
   const toc =
-    'Table of contents\n=================\n\n' + recursivelyCreateTOC(meta, 0);
+    'Table of contents\n=================\n\n' + recursivelyCreateTOC(meta, -1);
   let content = getContent(readme, toc);
   const readmePath = path.join(cwd, 'README.md');
   log.debug('output', content, 'to', readmePath);
