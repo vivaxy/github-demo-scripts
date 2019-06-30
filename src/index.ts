@@ -29,11 +29,6 @@ async function configureYargs() {
         demandOption: 'linkPrefix is required',
         desc: 'link prefix',
       },
-      keywords: {
-        type: 'array',
-        desc: 'default keywords in meta',
-        default: [],
-      },
       readme: {
         type: 'string',
         desc: 'readme content before TOC',
@@ -47,12 +42,11 @@ async function configureYargs() {
 (async function() {
   try {
     await configureYargs();
-    const { cwd, logLevel, linkPrefix, keywords, readme } = yargs.argv;
+    const { cwd, logLevel, linkPrefix, readme } = yargs.argv;
     const options: Options = {
       cwd: cwd as string,
       logLevel: logLevel as number,
       linkPrefix: linkPrefix as string,
-      keywords: keywords as string[],
       readme: readme as string,
     };
     await toc(options);

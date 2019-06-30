@@ -67,6 +67,7 @@
     "cosmiconfig": "^5.2.1",
     "fast-glob": "^3.0.3",
     "fs-extra": "^8.1.0",
+    "humanize-string": "^2.1.0",
     "log-util": "^2.2.1",
     "yargs": "^13.2.4"
   }

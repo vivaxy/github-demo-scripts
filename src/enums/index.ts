@@ -7,4 +7,5 @@ export enum ERROR_TYPES {
   INVALID_CWD = 'invalid cwd',
   INVALID_META = 'please supply meta',
   MISSING_KEYWORD = 'missing keyword',
+  MISSING_PACKAGE_JSON = 'missing package.json',
 }
