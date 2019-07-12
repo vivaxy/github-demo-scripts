@@ -183,12 +183,15 @@ async function recursivelyReadMeta({
     relativePath,
     name: 'keywords',
     $parent: $head,
-    defaultContent: [...pkg.keywords, cwdDirname] || [],
+    defaultContent: Array.from(new Set([...pkg.keywords, cwdDirname])),
     getElement($parent) {
       return $parent.find('meta[name="keywords"]');
     },
     getContent($element) {
-      return ($element.attr('content') || '').split(',').map((kw) => kw.trim());
+      const keywords = ($element.attr('content') || '')
+        .split(',')
+        .map((kw) => kw.trim());
+      return Array.from(new Set(keywords));
     },
     createElement(content) {
       return `<meta name="keywords" content="${content.join(',')}" />`;
@@ -197,12 +200,11 @@ async function recursivelyReadMeta({
       $element.attr('content', content.join(','));
     },
     mergeContent(current, defaultContent) {
-      return defaultContent.reduce(function(acc, cur) {
-        if (acc.includes(cur)) {
-          return acc;
-        }
-        return [...acc, cur];
-      }, current);
+      const keywordsSet = new Set(current);
+      defaultContent.forEach(function(kw) {
+        keywordsSet.add(kw);
+      });
+      return Array.from(keywordsSet);
     },
   });
   const desc = getMetaContent<string>({
