@@ -11,8 +11,35 @@ Created by create-n.
 
 # Usage
 
-- Run in standalone `npx @vivaxy/github-demo-scripts`
-- Install and run `yarn add @vivaxy/github-demo-scripts && npx gds`
+## Run in standalone
+
+`npx @vivaxy/github-demo-scripts`
+
+## Install and run with pre-commit hook
+
+`yarn add @vivaxy/github-demo-scripts husky --dev`
+
+`package.json`
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "gds && git add README.md"
+    }
+  }
+}
+```
+
+# Config
+
+## readme
+
+Readme prefix string.
+
+## link-prefix
+
+Link prefix.
 
 [travis-image]: https://img.shields.io/travis/vivaxy/github-demo-scripts.svg?style=flat-square
 [travis-url]: https://travis-ci.org/vivaxy/github-demo-scripts
