@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.0...v0.3.1) (2019-07-12)
+
+
+### Bug Fixes
+
+* **toc:** :bug: keywords ([2ae51f2](https://github.com/vivaxy/github-demo-scripts/commit/2ae51f2))
+
+
+
 ## [0.3.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.4...v0.3.0) (2019-06-30)
 
 
