@@ -25,7 +25,7 @@ Created by create-n.
 {
   "husky": {
     "hooks": {
-      "pre-commit": "gds && git add README.md"
+      "pre-commit": "gds && git add ."
     }
   }
 }
