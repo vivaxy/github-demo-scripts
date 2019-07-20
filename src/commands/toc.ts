@@ -6,6 +6,7 @@ import * as path from 'path';
 import * as fse from 'fs-extra';
 import * as glob from 'fast-glob';
 import * as cheerio from 'cheerio';
+import { deepEqual } from 'fast-equals';
 import humanString from 'humanize-string';
 import { ERROR_TYPES } from '../enums';
 import * as log from 'log-util';
@@ -82,7 +83,7 @@ function getMetaContent<T>({
     };
   }
   const newContent = mergeContent(currentContent, defaultContent);
-  if (newContent === currentContent) {
+  if (deepEqual(newContent, currentContent)) {
     return {
       content: currentContent,
       modified: false,
@@ -105,7 +106,7 @@ async function recursivelyReadMeta({
   linkPrefix: string;
   relativePath: string;
 }): Promise<Meta | null> {
-  const dirs = await glob(['*'], {
+  const dirs = await glob(['!node_modules', '*'], {
     cwd: path.join(cwd, relativePath),
     onlyDirectories: true,
   });

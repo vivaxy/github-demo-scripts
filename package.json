@@ -66,6 +66,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "cosmiconfig": "^5.2.1",
+    "fast-equals": "^2.0.0",
     "fast-glob": "^3.0.3",
     "fs-extra": "^8.1.0",
     "humanize-string": "^2.1.0",
