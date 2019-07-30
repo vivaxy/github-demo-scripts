@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.2...v0.4.0) (2019-07-30)
+
+
+### Features
+
+* **ignore:** :sparkles: ignore git submodules ([02d8baf](https://github.com/vivaxy/github-demo-scripts/commit/02d8baf))
+* **options:** :sparkles: add readmeSuffix option ([143e278](https://github.com/vivaxy/github-demo-scripts/commit/143e278))
+
+
+
 ### [0.3.2](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.0...v0.3.2) (2019-07-20)
 
 
