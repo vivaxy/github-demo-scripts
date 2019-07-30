@@ -30,9 +30,14 @@ async function configureYargs() {
         demandOption: 'linkPrefix is required',
         desc: 'link prefix',
       },
-      readme: {
+      readmePrefix: {
         type: 'string',
         desc: 'readme content before TOC',
+        default: '',
+      },
+      readmeSuffix: {
+        type: 'string',
+        desc: 'readme content after TOC',
         default: '',
       },
     })
@@ -44,12 +49,19 @@ async function configureYargs() {
   try {
     await configureYargs();
     updateNotifier({ pkg: require('../package.json') }).notify();
-    const { cwd, logLevel, linkPrefix, readme } = yargs.argv;
+    const {
+      cwd,
+      logLevel,
+      linkPrefix,
+      readmePrefix,
+      readmeSuffix,
+    } = yargs.argv;
     const options: Options = {
       cwd: cwd as string,
       logLevel: logLevel as number,
       linkPrefix: linkPrefix as string,
-      readme: readme as string,
+      readmePrefix: readmePrefix as string,
+      readmeSuffix: readmePrefix as string,
     };
     await toc(options);
   } catch (e) {
