@@ -61,7 +61,7 @@ async function configureYargs() {
       logLevel: logLevel as number,
       linkPrefix: linkPrefix as string,
       readmePrefix: readmePrefix as string,
-      readmeSuffix: readmePrefix as string,
+      readmeSuffix: readmeSuffix as string,
     };
     await toc(options);
   } catch (e) {
