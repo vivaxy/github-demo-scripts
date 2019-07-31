@@ -8,6 +8,7 @@ import * as glob from 'fast-glob';
 import * as cheerio from 'cheerio';
 import { deepEqual } from 'fast-equals';
 import humanString from 'humanize-string';
+import { getAllSubmodules } from '@vivaxy/git';
 import { ERROR_TYPES } from '../enums';
 import * as log from 'log-util';
 
@@ -102,52 +103,8 @@ function getMetaContent<T>({
   };
 }
 
-interface Submodule {
-  name: string;
-
-  [key: string]: string;
-}
-
-async function getGitSubmodules({
-  cwd,
-}: {
-  cwd: string;
-}): Promise<Submodule[]> {
-  const gitModulesPath = path.join(cwd, '.gitmodules');
-  if (!(await fse.pathExists(gitModulesPath))) {
-    return [];
-  }
-  const submodulesFileContent = await fse.readFile(gitModulesPath, 'utf8');
-  const submodules: Submodule[] = [];
-  const lines = submodulesFileContent.split('\n');
-  let lineIndex = 0;
-  while (lineIndex < lines.length) {
-    let line = lines[lineIndex];
-    if (line.startsWith('[submodule ')) {
-      const name = trim(line.slice('[submodule '.length, -']'.length), '"');
-      const submodule: Submodule = {
-        name,
-      };
-      lineIndex++;
-      while (
-        lineIndex < lines.length &&
-        (line = lines[lineIndex]) &&
-        !line.startsWith('[submodule ')
-      ) {
-        const [key, value] = line.split('=');
-        submodule[key.trim()] = value.trim();
-        lineIndex++;
-      }
-      submodules.push(submodule);
-      continue;
-    }
-    lineIndex++;
-  }
-  return submodules;
-}
-
 async function getSubmodulePaths({ cwd }: { cwd: string }) {
-  const submodules = await getGitSubmodules({ cwd });
+  const submodules = await getAllSubmodules({ cwd });
   debug('submodules', submodules);
   return submodules.map(function(submodule) {
     return submodule.path;
