@@ -112,44 +112,32 @@ async function getSubmodulePaths({ cwd }: { cwd: string }) {
 }
 
 async function recursivelyReadMeta({
-  cwd,
+  wd,
   linkPrefix,
   relativePath,
   ignoreGlobs,
+  parentKeywords,
+  parentAuthor,
+  parentDescription,
+  parentTitle,
 }: {
-  cwd: string;
+  wd: string;
   linkPrefix: string;
   relativePath: string;
   ignoreGlobs: string[];
+  parentKeywords: string[];
+  parentAuthor: string;
+  parentDescription: string;
+  parentTitle: string;
 }): Promise<Meta | null> {
-  const dirs = await glob([...ignoreGlobs, '*'], {
-    cwd: path.join(cwd, relativePath),
-    onlyDirectories: true,
-  });
-  const rawChildren = await Promise.all(
-    dirs.map(async function(dir) {
-      return await recursivelyReadMeta({
-        cwd,
-        linkPrefix,
-        relativePath: path.join(relativePath, dir),
-        ignoreGlobs: ['!node_modules'],
-      });
-    }),
-  );
-  const children = rawChildren.filter(function(child) {
-    return child !== null;
-  }) as Meta[];
-  const htmlPath = path.join(cwd, relativePath, 'index.html');
+  const cwd = path.join(wd, relativePath);
+  const cwdDirname = path.basename(cwd);
+
+  const pkg = getPkg(cwd);
+  const htmlPath = path.join(cwd, 'index.html');
   if (!(await fse.pathExists(htmlPath))) {
     return null;
   }
-
-  const pkgPath = path.join(cwd, 'package.json');
-  if (!(await fse.pathExists(pkgPath))) {
-    throw new Error(ERROR_TYPES.MISSING_PACKAGE_JSON);
-  }
-  const pkg = require(pkgPath);
-  const cwdDirname = path.basename(path.join(cwd, relativePath));
 
   const $ = cheerio.load(await fse.readFile(htmlPath, 'utf8'), {
     decodeEntities: false,
@@ -180,7 +168,7 @@ async function recursivelyReadMeta({
     relativePath,
     name: 'author',
     $parent: $head,
-    defaultContent: pkg.author || '',
+    defaultContent: pkg.author || parentAuthor || '',
     getElement($parent) {
       return $parent.find('meta[name="author"]');
     },
@@ -201,7 +189,9 @@ async function recursivelyReadMeta({
     relativePath,
     name: 'keywords',
     $parent: $head,
-    defaultContent: Array.from(new Set([...pkg.keywords, cwdDirname])),
+    defaultContent: Array.from(
+      new Set([...parentKeywords, ...(pkg.keywords || []), cwdDirname]),
+    ),
     getElement($parent) {
       return $parent.find('meta[name="keywords"]');
     },
@@ -229,7 +219,7 @@ async function recursivelyReadMeta({
     relativePath,
     name: 'description',
     $parent: $head,
-    defaultContent: title.content || pkg.description || '',
+    defaultContent: pkg.description || title.content || parentDescription || '',
     getElement($parent) {
       return $parent.find('meta[name="description"]');
     },
@@ -251,7 +241,30 @@ async function recursivelyReadMeta({
     await fse.outputFile(htmlPath, $.html());
   }
 
-  const link = linkPrefix + path.join(relativePath, 'index.html');
+  const link = linkPrefix + path.join(relativePath) + '/';
+
+  const dirs = await glob([...ignoreGlobs, '*'], {
+    cwd: path.join(wd, relativePath),
+    onlyDirectories: true,
+  });
+  const rawChildren = await Promise.all(
+    dirs.map(async function(dir) {
+      return await recursivelyReadMeta({
+        wd,
+        linkPrefix,
+        relativePath: path.join(relativePath, dir),
+        ignoreGlobs: ['!node_modules'],
+        parentKeywords: keywords.content,
+        parentAuthor: author.content,
+        parentDescription: desc.content,
+        parentTitle: title.content,
+      });
+    }),
+  );
+  const children = rawChildren.filter(function(child) {
+    return child !== null;
+  }) as Meta[];
+
   debug(
     'meta:',
     relativePath,
@@ -333,6 +346,19 @@ function getContent(readmePrefix: string, toc: string, readmeSuffix: string) {
   return readmePrefix + '\n\n' + toc + '\n\n' + readmeSuffix;
 }
 
+function getPkg(cwd: string) {
+  const pkgPath = path.join(cwd, 'package.json');
+  try {
+    return require(pkgPath);
+  } catch (e) {
+    return {
+      keywords: [],
+      author: '',
+      description: '',
+    };
+  }
+}
+
 async function generateReadme(
   cwd: string,
   meta: Meta,
@@ -374,13 +400,19 @@ export default async function toc({
   }
   const submodulePaths = await getSubmodulePaths({ cwd });
   debug('submodulePaths', submodulePaths);
+
+  const pkg = getPkg(cwd);
   const meta = await recursivelyReadMeta({
-    cwd,
+    wd: cwd,
     linkPrefix,
     relativePath: '.',
     ignoreGlobs: submodulePaths.map((s) => `!${s}`).concat('!node_modules'),
+    parentKeywords: pkg.keywords || [],
+    parentAuthor: pkg.author || '',
+    parentDescription: pkg.description || '',
+    parentTitle: humanString(path.dirname(cwd)),
   });
-  // debug('meta', meta);
+
   if (!meta) {
     throw new Error(ERROR_TYPES.INVALID_META);
   }
