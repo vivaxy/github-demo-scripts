@@ -21,25 +21,33 @@ Created by create-n.
 
 `package.json`
 
-```json
+```diff
 {
-  "husky": {
-    "hooks": {
-      "pre-commit": "gds && git add ."
-    }
-  }
++ "husky": {
++   "hooks": {
++     "pre-commit": "gds && git add ."
++   }
++ }
 }
 ```
 
 # Config
 
-## readme
+## readme-prefix
 
 Readme prefix string.
+
+## readme-suffix
+
+Readme suffix string.
 
 ## link-prefix
 
 Link prefix.
+
+#
+
+Project created by [create-n](https://github.com/vivaxy/create-n).
 
 [travis-image]: https://img.shields.io/travis/vivaxy/github-demo-scripts.svg?style=flat-square
 [travis-url]: https://travis-ci.org/vivaxy/github-demo-scripts
