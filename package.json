@@ -43,7 +43,7 @@
     "@types/jest": "^24.0.17",
     "@types/update-notifier": "^2.5.0",
     "@types/yargs": "^13.0.0",
-    "husky": "^2.7.0",
+    "husky": "^4.0.0",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
