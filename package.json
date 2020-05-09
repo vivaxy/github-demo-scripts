@@ -52,7 +52,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@vivaxy/git": "^0.2.0",
+    "@vivaxy/git": "^4.0.0",
     "cheerio": "^1.0.0-rc.3",
     "cosmiconfig": "^6.0.0",
     "fast-equals": "^2.0.0",
