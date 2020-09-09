@@ -61,7 +61,7 @@
     "humanize-string": "^2.1.0",
     "log-util": "^2.2.1",
     "update-notifier": "^4.0.0",
-    "yargs": "^15.0.0"
+    "yargs": "^16.0.0"
   },
   "jest": {
     "preset": "ts-jest",
