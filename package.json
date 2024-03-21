@@ -1,9 +1,9 @@
 {
-  "name": "@vivaxy/github-demo-scripts",
+  "name": "@vivaxy/github-pages-scripts",
   "version": "0.5.0",
   "description": "Created by create-n",
   "bin": {
-    "gds": "lib/index.js"
+    "gps": "lib/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vivaxy/github-demo-scripts.git"
+    "url": "git+https://github.com/vivaxy/github-pages-scripts.git"
   },
   "author": "vivaxy <xyxuye2007@126.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vivaxy/github-demo-scripts/issues"
+    "url": "https://github.com/vivaxy/github-pages-scripts/issues"
   },
-  "homepage": "https://github.com/vivaxy/github-demo-scripts#readme",
+  "homepage": "https://github.com/vivaxy/github-pages-scripts#readme",
   "lint-staged": {
     "*.{js,ts,css,less,json,md,html,yml,yaml,pcss,jsx,tsx}": [
       "prettier --write"
@@ -35,10 +35,9 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@types/cheerio": "^0.22.11",
     "@types/cosmiconfig": "^5.0.3",
-    "@types/fs-extra": "^9.0.0",
+    "@types/fs-extra": "8",
     "@types/jest": "^26.0.0",
     "@types/update-notifier": "^5.0.0",
-    "@types/yargs": "^16.0.0",
     "husky": "5",
     "jest": "^26.0.0",
     "lint-staged": "^10.0.0",
@@ -50,15 +49,20 @@
   },
   "dependencies": {
     "@vivaxy/git": "^4.0.0",
+    "chalk": "2.4.2",
     "cheerio": "^1.0.0-rc.3",
     "cosmiconfig": "^7.0.0",
+    "execa": "2.0.3",
     "fast-equals": "^2.0.0",
     "fast-glob": "^3.0.3",
-    "fs-extra": "^9.0.0",
+    "figures": "3.0.0",
+    "fs-extra": "^9.0.1",
     "humanize-string": "^2.1.0",
-    "log-util": "^2.2.1",
+    "log-symbols": "3.0.0",
+    "log-util": "^2.3.0",
+    "sitemap": "^7.1.1",
     "update-notifier": "^5.0.0",
-    "yargs": "^16.0.0"
+    "yargs": "^17.7.2"
   },
   "jest": {
     "preset": "ts-jest",

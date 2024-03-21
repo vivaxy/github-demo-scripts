@@ -2,85 +2,85 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [0.5.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.4.0...v0.5.0) (2019-08-01)
+## [0.5.0](https://github.com/vivaxy/github-pages-scripts/compare/v0.4.0...v0.5.0) (2019-08-01)
 
 
 ### Features
 
-* **keywords:** :sparkles: inherits parent keywords ([021f27b](https://github.com/vivaxy/github-demo-scripts/commit/021f27b))
+* **keywords:** :sparkles: inherits parent keywords ([021f27b](https://github.com/vivaxy/github-pages-scripts/commit/021f27b))
 
 
 
-## [0.4.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.2...v0.4.0) (2019-07-30)
-
-
-### Features
-
-* **ignore:** :sparkles: ignore git submodules ([02d8baf](https://github.com/vivaxy/github-demo-scripts/commit/02d8baf))
-* **options:** :sparkles: add readmeSuffix option ([143e278](https://github.com/vivaxy/github-demo-scripts/commit/143e278))
-
-
-
-### [0.3.2](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.0...v0.3.2) (2019-07-20)
-
-
-### Bug Fixes
-
-* **toc:** :bug: fix always update keywords ([8833df1](https://github.com/vivaxy/github-demo-scripts/commit/8833df1))
-* **toc:** :bug: keywords ([2111c9c](https://github.com/vivaxy/github-demo-scripts/commit/2111c9c))
-
-
-
-### [0.3.1](https://github.com/vivaxy/github-demo-scripts/compare/v0.3.0...v0.3.1) (2019-07-12)
-
-
-### Bug Fixes
-
-* **toc:** :bug: keywords ([2ae51f2](https://github.com/vivaxy/github-demo-scripts/commit/2ae51f2))
-
-
-
-## [0.3.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.4...v0.3.0) (2019-06-30)
+## [0.4.0](https://github.com/vivaxy/github-pages-scripts/compare/v0.3.2...v0.4.0) (2019-07-30)
 
 
 ### Features
 
-* **toc:** :sparkles: Add toc reference ([e6bb591](https://github.com/vivaxy/github-demo-scripts/commit/e6bb591))
+* **ignore:** :sparkles: ignore git submodules ([02d8baf](https://github.com/vivaxy/github-pages-scripts/commit/02d8baf))
+* **options:** :sparkles: add readmeSuffix option ([143e278](https://github.com/vivaxy/github-pages-scripts/commit/143e278))
 
 
 
-### [0.2.4](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.3...v0.2.4) (2019-06-30)
-
-
-
-### [0.2.3](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.2...v0.2.3) (2019-06-30)
+### [0.3.2](https://github.com/vivaxy/github-pages-scripts/compare/v0.3.0...v0.3.2) (2019-07-20)
 
 
 ### Bug Fixes
 
-* **toc:** :bug: Fix toc desc not right ([4de6e50](https://github.com/vivaxy/github-demo-scripts/commit/4de6e50))
+* **toc:** :bug: fix always update keywords ([8833df1](https://github.com/vivaxy/github-pages-scripts/commit/8833df1))
+* **toc:** :bug: keywords ([2111c9c](https://github.com/vivaxy/github-pages-scripts/commit/2111c9c))
 
 
 
-### [0.2.2](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.1...v0.2.2) (2019-06-30)
+### [0.3.1](https://github.com/vivaxy/github-pages-scripts/compare/v0.3.0...v0.3.1) (2019-07-12)
 
 
 ### Bug Fixes
 
-* **meta:** :bug: fix meta value ([a45d62b](https://github.com/vivaxy/github-demo-scripts/commit/a45d62b))
+* **toc:** :bug: keywords ([2ae51f2](https://github.com/vivaxy/github-pages-scripts/commit/2ae51f2))
 
 
 
-### [0.2.1](https://github.com/vivaxy/github-demo-scripts/compare/v0.2.0...v0.2.1) (2019-06-30)
-
-
-
-## [0.2.0](https://github.com/vivaxy/github-demo-scripts/compare/v0.1.0...v0.2.0) (2019-06-30)
+## [0.3.0](https://github.com/vivaxy/github-pages-scripts/compare/v0.2.4...v0.3.0) (2019-06-30)
 
 
 ### Features
 
-* **toc:** :sparkles: merge metas ([63fd09b](https://github.com/vivaxy/github-demo-scripts/commit/63fd09b))
+* **toc:** :sparkles: Add toc reference ([e6bb591](https://github.com/vivaxy/github-pages-scripts/commit/e6bb591))
+
+
+
+### [0.2.4](https://github.com/vivaxy/github-pages-scripts/compare/v0.2.3...v0.2.4) (2019-06-30)
+
+
+
+### [0.2.3](https://github.com/vivaxy/github-pages-scripts/compare/v0.2.2...v0.2.3) (2019-06-30)
+
+
+### Bug Fixes
+
+* **toc:** :bug: Fix toc desc not right ([4de6e50](https://github.com/vivaxy/github-pages-scripts/commit/4de6e50))
+
+
+
+### [0.2.2](https://github.com/vivaxy/github-pages-scripts/compare/v0.2.1...v0.2.2) (2019-06-30)
+
+
+### Bug Fixes
+
+* **meta:** :bug: fix meta value ([a45d62b](https://github.com/vivaxy/github-pages-scripts/commit/a45d62b))
+
+
+
+### [0.2.1](https://github.com/vivaxy/github-pages-scripts/compare/v0.2.0...v0.2.1) (2019-06-30)
+
+
+
+## [0.2.0](https://github.com/vivaxy/github-pages-scripts/compare/v0.1.0...v0.2.0) (2019-06-30)
+
+
+### Features
+
+* **toc:** :sparkles: merge metas ([63fd09b](https://github.com/vivaxy/github-pages-scripts/commit/63fd09b))
 
 
 
@@ -89,9 +89,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **core:** :sparkles: Initial commit ([9ae6925](https://github.com/vivaxy/github-demo-scripts/commit/9ae6925))
+* **core:** :sparkles: Initial commit ([9ae6925](https://github.com/vivaxy/github-pages-scripts/commit/9ae6925))
 
 
 ### Tests
 
-* **test:** :white_check_mark: ([75a1bf2](https://github.com/vivaxy/github-demo-scripts/commit/75a1bf2))
+* **test:** :white_check_mark: ([75a1bf2](https://github.com/vivaxy/github-pages-scripts/commit/75a1bf2))
