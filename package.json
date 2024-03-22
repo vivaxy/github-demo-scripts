@@ -61,7 +61,7 @@
     "log-symbols": "3.0.0",
     "log-util": "^2.3.0",
     "sitemap": "^7.1.1",
-    "update-notifier": "^5.0.0",
+    "update-notifier": "^7.0.0",
     "yargs": "^17.7.2"
   },
   "jest": {
