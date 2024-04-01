@@ -45,6 +45,20 @@ type Page = {
   lastModified: string;
 };
 
+async function getLastModifiedTime(wd: string): Promise<string> {
+  const { stdout: diff } = await execa.command(`git status --short -- ${wd}`);
+  if (diff) {
+    return new Date().toISOString();
+  }
+  const { stdout: dateString } = await execa.command(
+    `git log -1 --date=local --format="%aI" -- ${wd}`,
+    {
+      shell: true,
+    },
+  );
+  return dateString;
+}
+
 /**
  * @ref https://webmasters.stackexchange.com/questions/18243/can-a-sitemap-index-contain-other-sitemap-indexes
  *  > Incorrect Sitemap index format: Nested Sitemap indexes
@@ -64,12 +78,8 @@ async function getSitemapData({
 }): Promise<Array<Page>> {
   const menuJSONPath = path.join(wd, 'menu.json');
   if (!(await fse.pathExists(menuJSONPath))) {
-    const {
-      stdout,
-    } = await execa.command(`git log -1 --date=local --format="%as" -- ${wd}`, {
-      shell: true,
-    });
-    const page = { url, lastModified: stdout };
+    const lastModified = await getLastModifiedTime(wd);
+    const page = { url, lastModified };
     logger.debug('page', page);
     return [page];
   }
