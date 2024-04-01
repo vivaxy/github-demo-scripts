@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/vivaxy/github-pages-scripts/compare/v0.5.1...v0.5.2) (2024-04-01)
+
+
+### Bug Fixes
+
+* **sitemap:** fix last modified time does not count uncommitted changes ([80163ba](https://github.com/vivaxy/github-pages-scripts/commit/80163baa3dc445f918fa06182eee44ee653ef06f))
+
 ### [0.5.1](https://github.com/vivaxy/github-pages-scripts/compare/v0.5.0...v0.5.1) (2024-03-21)
 
 

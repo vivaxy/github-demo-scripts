@@ -1,6 +1,6 @@
 {
   "name": "@vivaxy/github-pages-scripts",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Created by create-n",
   "bin": {
     "gps": "lib/index.js"
